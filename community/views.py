@@ -30,3 +30,7 @@ def viewDetail(request, num=1):
     # 클릭한 레코드를 읽어온다.
     article_detail = Article.objects.get(id=num)
     return render(request, 'view_detail.html', {'article_detail':article_detail})
+
+def indexPage(request):
+    index_page = Article.objects.all().order_by('-cdate')[:3]
+    return render(request, 'index.html', {'index_page':index_page})

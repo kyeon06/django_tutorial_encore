@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>메모 남기기</h1>
+
+    {% for article in index_page %}
+    <a href="/view_detail/{{article.id}}">{{article.id}}</a>
+        | {{article.name}} | {{article.title}} | {{article.cdate|date:"Y년 M d일 D"}}
+        <hr> 
+    {% endfor %}
+    
+    <button onclick="location.href=/write/">메모하기</button>
+
+</body>
+</html>

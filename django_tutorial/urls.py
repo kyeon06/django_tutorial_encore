@@ -15,13 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from community.views import write, articleList, viewDetail
+from community.views import write, articleList, viewDetail, indexPage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('write/', write, name='write'),
     path('list/', articleList, name='list'),
-    # / 없으면 안되고 변수를 지정할 경우 <> 안에 넣는다.
-    # num이 viewDetail로 넘어가서 해당 id에 글을 보여준다.
     path('view_detail/<int:num>/', viewDetail, name='view_detail'),
+    path('index/', indexPage, name='index'),
 ]
