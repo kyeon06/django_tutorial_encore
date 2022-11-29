@@ -8,11 +8,14 @@
 </head>
 <body>
     <h1>article 전체 조회</h1>
-    <p>이름 | 제목 | 작성날짜</p>
-        <ul>
+    <p>no | 이름 | 제목 | 작성날짜</p>
+    <hr>
+ 
             {% for article in article_list %}
-            <li>{{article.name}} | {{article.title}} | {{article.cdate|date:"Y년 M d일 D"}}</li>    
+            <a href="/view_detail/{{article.id}}">{{article.id}}</a>
+                | {{article.name}} | {{article.title}} | {{article.cdate|date:"Y년 M d일 D"}}
+                <hr> 
             {% endfor %}
-        </ul>
+ 
 </body>
 </html>
