@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .forms import Form
 from .models import Article
-# Create your views here.
 
 def write(request):
     # request가 post이면
@@ -17,19 +16,19 @@ def write(request):
     else:
         form = Form() # Form 객체 생성
     data = "정보를 입력하세요."
-    return render(request, 'write.html', {'data':data, 'form':form})
+    return render(request, 'community/write.html', {'data':data, 'form':form})
 
 
 def articleList(request):
     # Article객체에 들어있는 필드 객체 모두를 불러온다.
     article_list = Article.objects.all()
-    return render(request, 'list.html', {'article_list':article_list})
+    return render(request, 'community/list.html', {'article_list':article_list})
 
 
 def viewDetail(request, num=1):
     # 클릭한 레코드를 읽어온다.
     article_detail = Article.objects.get(id=num)
-    return render(request, 'view_detail.html', {'article_detail':article_detail})
+    return render(request, 'community/view_detail.html', {'article_detail':article_detail})
 
 def indexPage(request):
     index_page = Article.objects.all().order_by('-cdate')[:3]

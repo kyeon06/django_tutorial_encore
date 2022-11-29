@@ -10,7 +10,7 @@
     <h1>메모 남기기</h1>
 
     {% for article in index_page %}
-    <a href="/view_detail/{{article.id}}">{{article.id}}</a>
+    <a href="/view_detail/{{article.id}}">{{article.title}}</a>
         | {{article.name}} | {{article.title}} | {{article.cdate|date:"Y년 M d일 D"}}
         <hr> 
     {% endfor %}
