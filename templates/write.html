@@ -8,7 +8,12 @@
 </head>
 <body>
     <h1>{{data}}</h1>
-    <h1>{{data1}}</h1>
+    <form action="" method="post">
+        <table>
+            {{form}} {% csrf_token %}
+        </table>
+        <p><button type="sumbit">확인</button></p>
+    </form>
     
     
 </body>
