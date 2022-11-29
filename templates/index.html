@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <h1 class="text-center" style="padding-top: 20px;">메모 남기기</h1>
+    <h1 class="text-center" style="padding-top: 20px;">최근 3개 글 목록</h1>
     <hr>
 
     <div class="container">
@@ -23,13 +23,14 @@
             <tbody>
                 {% for article in index_page %}
                 <tr>
-                  <th scope="row"><a href="/view_detail/{{article.id}}">{{article.title}}</a></th>
+                  <th scope="row"><a href="/view_detail/{{article.id}}" class = "link-danger">{{article.title}}</a></th>
                   <td>{{article.name}}</td>
                   <td>{{article.cdate|date:"Y년 M d일 D"}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+        <button type="button" class="btn btn-warning" onclick="location.href=/list/">전체 글 보기</button>
         <button type="button" class="btn btn-warning" onclick="location.href=/write/" style="float: right;">메모하기</button>
 
     </div>

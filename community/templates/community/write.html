@@ -8,12 +8,17 @@
 </head>
 <body>
     <h1>{{data}}</h1>
-    <form action="" method="post">
-        <table>
-            {{form}} {% csrf_token %}
-        </table>
-        <p><button type="sumbit">확인</button></p>
-    </form>
-    <p><button onclick="location.href=/list/">조회</a></button></p>
+    <hr>
+    <br>
+        <form action="" method="post">
+            <table>
+                {{form}} {% csrf_token %}
+            </table>
+            <br>
+            <hr>
+            <p><button type="sumbit">확인</button></p>
+        </form>
+
+    <button onclick="location.href=/list/">조회</button>
 </body>
 </html>
