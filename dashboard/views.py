@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import CountryData
 from .forms import CountryDataForm
 
@@ -9,6 +9,7 @@ def dashBoard(request):
         
         if form.is_valid():
             form.save()
+            return redirect('/dashboard')
   
     else:
         form = CountryDataForm()
