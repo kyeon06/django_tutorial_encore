@@ -6,4 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', indexPage, name='index'),
     path('community/', include('community.urls')),
+    path('dashboard/', include('dashboard.urls')),
 ]
