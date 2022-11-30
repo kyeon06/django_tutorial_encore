@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+</head>
+
+<body>
+    <!-- menubar -->
+    {% include 'partials/navbar.html' %}
+
+
+    <!-- 보여지는 내용 -->
+    <div class='container'>
+
+        <!-- 상단 내용 및 설명 -->
+        <h1 style="text-align: center; padding-top: 20px;">
+            {% block top-title %}
+            {% endblock top-title %}
+        </h1>
+        <hr>
+        {% block content%}
+        {% endblock content%}
+    </div>
+    <br>
+    <!-- footer -->
+    {% include 'partials/footer.html' %}
+</body>
+
+<!-- js부분 -->
+{% block script %}
+{% endblock script %}
+
+</html>
