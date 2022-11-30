@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import Form
 from .models import Article
 
@@ -12,6 +12,7 @@ def write(request):
         # 데이터가 있는지 없는지 있으면 DB에 저장 
         if form.is_valid():
             form.save()
+            return redirect('/community/list')
     # request가 post가 아니면
     else:
         form = Form() # Form 객체 생성
@@ -21,7 +22,7 @@ def write(request):
 
 def articleList(request):
     # Article객체에 들어있는 필드 객체 모두를 불러온다.
-    article_list = Article.objects.all()
+    article_list = Article.objects.all().order_by('-cdate')
     return render(request, 'community/list.html', {'article_list':article_list})
 
 

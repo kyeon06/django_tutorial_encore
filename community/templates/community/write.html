@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>{{data}}</h1>
-    <hr>
-    <br>
-        <form action="" method="post">
-            <table>
-                {{form}} {% csrf_token %}
-            </table>
-            <br>
-            <hr>
-            <p><button type="sumbit">확인</button></p>
-        </form>
+{% extends 'partials/base.html'%}
+{% block title %}
+WRITE
+{% endblock title %}
 
-    <button onclick="location.href='/community/list/'">조회</button>
-</body>
-</html>
+{% block top-title %}
+{{data}}
+{% endblock top-title %}
+
+{%load crispy_forms_tags%}
+{% block content%}
+<form action="" method="post">
+    <table>
+        {{form | crispy}} {% csrf_token %}
+    </table>
+    <br>
+    <hr>
+    <button type="sumbit">확인</button>
+</form>
+
+
+{% endblock content%}
