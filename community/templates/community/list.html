@@ -21,7 +21,7 @@
             <tbody>
                 {% for article in article_list %}
                 <tr>
-                  <th scope="row"><a href="/view_detail/{{article.id}}" class="link-danger">{{article.title}}</a></th>
+                  <th scope="row"><a href="/community/view_detail/{{article.id}}" class="link-danger">{{article.title}}</a></th>
                   <td>{{article.name}}</td>
                   <td>{{article.cdate|date:"Y년 M d일 D"}}</td>
                 </tr>
@@ -29,7 +29,7 @@
             </tbody>
         </table>
         <button type="button" class="btn btn-warning" onclick="location.href=/index/">처음으로</button>
-        <button type="button" class="btn btn-warning" onclick="location.href=/write/" style="float: right;">글 작성</button>
+        <button type="button" class="btn btn-warning" onclick="location.href='/community/write/'" style="float: right;">글 작성</button>
     </div>
 
  
