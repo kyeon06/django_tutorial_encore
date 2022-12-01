@@ -1,5 +1,5 @@
 {% extends  'partials/base.html' %}
-
+{% load static %}
 {% block title %}
 HOME
 {% endblock title %}
@@ -11,6 +11,9 @@ HOME
 
 {% block content%}
 <div class="container">
+    <div style="text-align: center;">
+        <img class="img-fluid" src="{% static '/imgs/img1.png'%}" alt="home_image" style="width: 1280px; height:auto">
+    </div>
     <table class="table table-striped">
         <thead>
             <th scope="col">title</th>
