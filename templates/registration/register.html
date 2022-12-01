@@ -1,9 +1,18 @@
+{% extends 'partials/base.html' %}
 {% block title %}회원 가입{% endblock title %}
 
-{% block content %}
-<h1></h1>
-<p>사용자 ID와 Password를 입력하세요.</p>
+{%block auth_css%}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+{%endblock auth_css%}
 
+{% block top-title %}
+회원가입
+{% endblock top-title %}
+
+
+{% load widget_tweaks %}
+{% block content %}
+<p>사용자 ID와 Password를 입력하세요.</p>
 
 <div class="alert alert-danger">
   <div class="font-weight-bold">입력한 값이 정확하지 않습니다. 다시 확인하세요. </div>
@@ -14,27 +23,27 @@
 <form action="." method="post" class="card pt-3">
   {% csrf_token %}
   <div class="form-group row">
-    {{ |add_label_class:"col-form-label col-sm-4 ml-3 font-weight-bold" }}
+    {{ form.username|add_label_class:"col-form-label col-sm-4 ml-3 font-weight-bold" }}
     <div class="col-sm-6">
-      {{ |add_class:"form-control"|attr:"autofocus" }}
+      {{ form.username|add_class:"form-control"|attr:"autofocus" }}
     </div>
   </div>
   <div class="form-group row">
-    {{ |add_label_class:"col-form-label col-sm-4 ml-3 font-weight-bold" }}
+    {{ form.email|add_label_class:"col-form-label col-sm-4 ml-3 font-weight-bold" }}
     <div class="col-sm-6">
-      {{ |add_class:"form-control" }}
+      {{ form.email|add_class:"form-control" }}
     </div>
   </div>
   <div class="form-group row">
-    {{ |add_label_class:"col-form-label col-sm-4 ml-3 font-weight-bold" }}
+    {{ form.password1|add_label_class:"col-form-label col-sm-4 ml-3 font-weight-bold" }}
     <div class="col-sm-6">
-      {{ |add_class:"form-control" }}
+      {{ form.password1|add_class:"form-control" }}
     </div>
   </div>
   <div class="form-group row">
-    {{ |add_label_class:"col-form-label col-sm-4 ml-3 font-weight-bold" }}
+    {{ form.password2|add_label_class:"col-form-label col-sm-4 ml-3 font-weight-bold" }}
     <div class="col-sm-6">
-      {{ |add_class:"form-control" }}
+      {{ form.password2|add_class:"form-control" }}
     </div>
   </div>
   <div class="form-group">
@@ -43,5 +52,4 @@
     </div>
   </div>
 </form>
-
 {% endblock content %}

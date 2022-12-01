@@ -18,7 +18,7 @@ COMMUNITY
     <tbody>
         {% for article in article_list %}
         <tr>
-            <th scope="row"><a href="/community/view_detail/{{article.id}}" class="link-danger">{{article.title}}</a>
+            <th scope="row"><a href="{% url 'community:view_detail' article.id %}" class="link-danger">{{article.title}}</a>
             </th>
             <td>{{article.name}}</td>
             <td>{{article.cdate|date:"Y년 M d일 D"}}</td>
