@@ -10,6 +10,11 @@ class ArticleAdmin(admin.ModelAdmin):
     ]
 
     list_display = ('pk','title','url','cdate')
+    
+    #필터 추가
+    list_filter = ['cdate']
+    search_fields = ['title', 'contents']
+
 
 # admin 페이지에 Article 데이터 모델 등록
 # 이렇게 하면 관리 페이지에서 데이터 CRUD를 할 수 있게 된다.
