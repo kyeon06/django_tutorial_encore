@@ -1,6 +1,27 @@
 from django.shortcuts import render, redirect
 from .forms import Form
 from .models import Article
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView, DetailView
+
+class WriteFormView(CreateView):
+    model = Article
+    fields = ['name', 'title', 'contents', 'url', 'email']
+    template_name = 'community/write.html'
+    success_url = reverse_lazy('community:list')
+    
+    def form_valid(self, form):
+        return super().form_valid(form)
+
+class ArticleListView(ListView):
+    model = Article
+    template_name = 'community/list.html'
+
+class ArticleDetailView(DetailView):
+    model = Article
+    template_name = 'community/view_detail.html'
+
+
 
 def write(request):
     # request가 post이면
