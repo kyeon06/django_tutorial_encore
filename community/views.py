@@ -1,8 +1,9 @@
 from .models import Article
 from django.urls import reverse_lazy
 # LoginRequiredMixin : 사용자가 로그인 된 경우 정상처리/로그인 안된 사용자는 로그인 페이지로 리다이렉션
-from django.contrib.auth.mixins import LoginRequiredMixin, AccessMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
+from django_tutorial.views import OwnerOnlyMixin
 
 # 작성
 class WriteFormView(LoginRequiredMixin, CreateView):
@@ -38,23 +39,7 @@ class ArticleChangeView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return Article.objects.filter(owner=self.request.user)
 
-# 로그인한 사용자가 콘텐츠의 소유자 인지 판별
-# 소유자면 정상처리, 소유자가 아닌 경우 이 속성이 true -> 403 처리/ false -> 로그인 페이지로 이동
-# 403 응답 시 보여줄 메세지를 지정
-class OwnerOnlyMixin(AccessMixin):
-    raise_exception = True
-    permission_denied_message = "Owner only can update/delete the object"
 
-    def dispatch(self, request, *args, **kwargs):
-        # 대상이 되는 객체 가져오기
-        obj = self.get_object()
-
-        # 현재 사용자와 글 소유자가 같은지 판단
-        if request.user != obj.owner:
-            # 다르면 403 exception 처리
-            return self.handle_no_permission()
-
-        return super().dispatch(request, *args, **kwargs)
 
 # 로그인 user 글 수정(update)
 class ArticleUpdateView(OwnerOnlyMixin,UpdateView):
