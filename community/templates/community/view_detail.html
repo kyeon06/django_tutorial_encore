@@ -30,4 +30,8 @@ DETAIL
             <td>{{article.email}}</td>
         </tr>
     </table>
+    {% if user.is_active %}
+        <a type="button" href="{%url 'community:update' article.id %}">수정</a>
+        <a type="button" href="{%url 'community:delete' article.id %}">삭제</a>
+    {% endif %}
 {% endblock content%}
