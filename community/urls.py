@@ -20,7 +20,7 @@ urlpatterns = [
     path('change/', ArticleChangeView.as_view(), name='change_list'),
 
     # update
-    path('update/', ArticleUpdateView.as_view(), name='update'),
+    path('<int:pk>/update/', ArticleUpdateView.as_view(), name='update'),
 
     # delete
     path('<int:pk>/delete', ArticleDeleteView.as_view(), name='delete'),

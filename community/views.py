@@ -20,11 +20,12 @@ class WriteFormView(LoginRequiredMixin, CreateView):
 class ArticleListView(ListView):
     model = Article
     template_name = 'community/list.html'
+    # def get_queryset(self):
+    #     return Article.objects.all().order_by('-cdate')
 
 # 세부사항
 class ArticleDetailView(DetailView):
     model = Article
-    print(DetailView.get_context_object_name)
     template_name = 'community/view_detail.html'
 
 
@@ -60,6 +61,7 @@ class ArticleUpdateView(OwnerOnlyMixin,UpdateView):
     model = Article
     template_name = "community/article_update.html"
     fields = ['name', 'title', 'contents','url', 'email']
+    
     success_url = reverse_lazy('community:change_list')
  
 # 로그인 user 글 삭제(delete)

@@ -31,6 +31,7 @@
                       환영합니다! {% firstof user.get_short_name user.get_username %} <i class="bi bi-emoji-laughing"></i>
                     </a>
                     <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{%url 'community:change_list'%}"><i class="bi bi-archive-fill"></i> 내 글 관리</a></li>
                       <li><a class="dropdown-item" href="{%url 'logout'%}"><i class="bi bi-backspace-reverse"></i> 로그아웃</a></li>
                       <li><a class="dropdown-item" href="{%url 'password_change'%}">비밀번호 변경</a></li>
                     </ul>
