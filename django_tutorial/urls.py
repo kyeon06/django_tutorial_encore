@@ -7,7 +7,7 @@ urlpatterns = [
     # 관리자 페이지 url
     path('admin/', admin.site.urls),
     
-    path('index/', indexPage, name='index'),
+    path('', indexPage, name='index'),
     path('community/', include('community.urls')),
     path('dashboard/', include('dashboard.urls')),
     
