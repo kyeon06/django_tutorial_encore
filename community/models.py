@@ -22,7 +22,7 @@ class Article(models.Model):
         verbose_name_plural = '아티클 작성하기'
         # 수정한 날짜를 기준으로 정렬
         ordering = ('-mdate',)
-    
+
     def __str__(self):
         return f"{self.title}--{self.name}--{self.cdate}"
     
